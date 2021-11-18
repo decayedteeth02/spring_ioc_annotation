@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    @Controller 标记在控制层的类注册为Bean主健-->
+<!--     @Service 标记在业务逻辑层的类注册为Bean主健-->
+<!--    @Repository 标记在数据访问层的类注册为Bean主健-->
+<!--     @Component 标记非三层的普通注册为Bean主健-->
+<!--    不是每个层都需要相应的注解-->
+<!--    1.增强可读性-->
+<!--    2.利于spring管理-->
+
+<!--    怎么使用注释将一个类注册成Bean的步骤-->
+<!--    1.设置扫描包context:component-scan-->
+<!--    2.在对应的类名加上注解-->
+
+<!--    <bean class="UserController" id="userController"></bean>-->
+
+<!--    扫描包-->
+<!--    base-package 设置需要扫描的包-->
+<!--    排除扫描：context:exclude-filter 设置需要排除扫描的选项-->
+<!--    包含扫描: context:include-filter 设置需要包含扫描的选项-->
+<!--    type:1.annotation 默认 根据注解的完整限定名来设置排除\包含-->
+<!--          2.assignable 根据类的限定名设置排除\包括-->
+
+<!--    use-default-filters="" 默认为True 会自动扫描 @Controller @Service等-->
+<!--                                若为false 就不会扫描-->
+<!--    <context:component-scan base-package="cn.loc" use-default-filters="false" >-->
+<!--        <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>-->
+<!--    </context:component-scan>-->
+
+    <context:component-scan base-package="cn.loc"></context:component-scan>
+
+<!--    引用外部属性资源文件 可以通过value来获取里面的key值-->
+    <context:property-placeholder location="db.properties"></context:property-placeholder>
+
+</beans>
